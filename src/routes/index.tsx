@@ -316,7 +316,15 @@ function TahradHome() {
                 <h2>Direct Radiologist Communication, Zero Disconnect</h2>
               </div>
               <div className="header-right">
-                Every scan request means there's a patient on the line. We empower hospitals, diagnostic centres, and clinical teams across India with remote diagnostic interpretations that you can trust implicitly.
+                <p style={{ margin: "0 0 0.6rem 0", color: "var(--brand-gray)", fontSize: "1rem", lineHeight: 1.6 }}>
+                  Every scan request means there’s a patient on the line. Patients experiencing everything from strokes to CT traumas to anxious patients waiting for follow-up MRIs and more. Our workflow deliberately adopts this level of pressure.
+                </p>
+                <p style={{ margin: "0 0 0.6rem 0", fontStyle: "italic", fontWeight: 600, color: "var(--brand-blue)", lineHeight: 1.5 }}>
+                  “We don’t just read scans, we remain accessible before, during and after the report is signed.”
+                </p>
+                <p style={{ margin: 0, color: "var(--brand-gray)", fontSize: "0.95rem", lineHeight: 1.55 }}>
+                  The main differentiator for us, is our extensive network of Radiologists as well as our communication with our clients. Our clients don’t have to rely on ticket systems with no information related to the request, or approximate time frames. You can expect direct communication with the radiologist, clear paths for escalation, and reporting turnaround times we are actually accountable to.
+                </p>
               </div>
             </div>
 
@@ -327,9 +335,10 @@ function TahradHome() {
                   <div className="icon-tile-green">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   </div>
-                  <h3>Our Mission</h3>
+                  <span style={{ fontSize: "0.72rem", letterSpacing: "0.08em", fontWeight: 700, textTransform: "uppercase", opacity: 0.85, display: "block", marginBottom: "0.3rem" }}>OUR MISSION</span>
+                  <h3>Timely, precise, high-quality reporting</h3>
                   <p>
-                    Timely, precise, high-quality reporting to enhance healthcare delivery. We don't just read scans, we remain accessible before, during and after the report is signed.
+                    Enhance healthcare delivery through timely, precise, and high-quality tele-radiology services. We don't just read scans, we remain accessible before, during and after the report is signed.
                   </p>
                 </div>
                 <button
@@ -347,9 +356,10 @@ function TahradHome() {
                   <div className="icon-tile-green">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
                   </div>
-                  <h3>Our Vision</h3>
+                  <span style={{ fontSize: "0.72rem", letterSpacing: "0.08em", fontWeight: 700, textTransform: "uppercase", color: "var(--brand-blue)", opacity: 0.85, display: "block", marginBottom: "0.3rem" }}>OUR VISION</span>
+                  <h3>A global leader in tele-radiology</h3>
                   <p>
-                    A global leader in tele-radiology fostering innovation, trust, and diagnostic excellence—backed by our extensive panel of 140+ fellowship-trained radiologists.
+                    Become a global leader in tele-radiology by fostering innovation, trust, and diagnostic excellence—backed by our extensive panel of 140+ fellowship-trained radiologists.
                   </p>
                 </div>
                 <a
@@ -367,9 +377,10 @@ function TahradHome() {
                   <div className="icon-tile-green">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                   </div>
-                  <h3>Service Philosophy</h3>
+                  <span style={{ fontSize: "0.72rem", letterSpacing: "0.08em", fontWeight: 700, textTransform: "uppercase", color: "var(--brand-blue)", opacity: 0.85, display: "block", marginBottom: "0.3rem" }}>SERVICE PHILOSOPHY</span>
+                  <h3>Accuracy, Speed &amp; Patient Care</h3>
                   <p>
-                    Accuracy, Speed, Reliability, Workflow Optimization, and Patient Care. No ticket systems or vague time frames—reporting turnaround times we are actually accountable to.
+                    Accuracy • Speed • Reliability • Workflow Optimization • Patient Care. Reporting turnaround times we are actually accountable to, without radio silence.
                   </p>
                 </div>
                 <a
@@ -482,7 +493,10 @@ function TahradHome() {
             <div className="tah-modalities-header">
               <div>
                 <span className="eyebrow">WHAT WE DO</span>
-                <h2>Full-spectrum teleradiology, one reporting partner.</h2>
+                <h2>FULL-SPECTRUM TELERADIOLOGY, ONE REPORTING PARTNER</h2>
+                <p style={{ color: "var(--brand-gray)", fontSize: "1.05rem", marginTop: "0.5rem", maxWidth: "680px" }}>
+                  From X-Rays to specialty MRIs, we cover the entire diagnostic imaging spectrum so you don't have to work with multiple vendors for different modalities.
+                </p>
               </div>
               <button
                 onClick={scrollToPilot}
@@ -508,10 +522,10 @@ function TahradHome() {
                     <span className="modality-code">CT</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>CT reporting</h3>
+                  <h3>CT Reporting</h3>
                   <p>High-speed CT reporting for head, chest, abdomen, angiography, and polytrauma emergencies with sub-hour stat delivery.</p>
                 </div>
-                <div className="modality-tags">Trauma &amp; Stroke · 3D Angio · Abdomen</div>
+                <div className="modality-tags">Head CT · Chest CT · CTA · Polytrauma · Abdominal CT</div>
               </div>
 
               {/* MRI */}
@@ -521,10 +535,10 @@ function TahradHome() {
                     <span className="modality-code">MRI</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>MRI reporting</h3>
+                  <h3>MRI Reporting</h3>
                   <p>Comprehensive MRI interpretations covering neuroradiology, spine, musculoskeletal joints, pelvic, and cardiac studies.</p>
                 </div>
-                <div className="modality-tags">Neuro &amp; Spine · MSK · Cardiac &amp; Body</div>
+                <div className="modality-tags">Neuro MRI · Spine MRI · MSK · Cardiac MRI · MultiParametric MRI</div>
               </div>
 
               {/* XR */}
@@ -534,10 +548,10 @@ function TahradHome() {
                     <span className="modality-code">XR</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>X-Ray reporting</h3>
+                  <h3>X-Ray Reporting</h3>
                   <p>Rapid turnaround for high-volume plain radiography, chest X-rays, trauma skeletal series, and routine screening.</p>
                 </div>
-                <div className="modality-tags">Chest · Skeletal · Routine Screening</div>
+                <div className="modality-tags">Chest X-Ray · Skeletal · Trauma · Screening Batch</div>
               </div>
 
               {/* PET */}
@@ -547,10 +561,10 @@ function TahradHome() {
                     <span className="modality-code">PET</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>PET reporting</h3>
+                  <h3>PET Reporting</h3>
                   <p>Specialized PET/CT molecular imaging reads for cancer staging, therapy evaluation, and metabolic lesion tracking.</p>
                 </div>
-                <div className="modality-tags">Oncology Staging · FDG · SUVmax</div>
+                <div className="modality-tags">PET/CT · FDG Oncology · PERCIST · SUVmax</div>
               </div>
 
               {/* USG */}
@@ -560,10 +574,10 @@ function TahradHome() {
                     <span className="modality-code">USG</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>USG reporting</h3>
-                  <p>Expert review for general ultrasound, Color Doppler vascular studies, and abdominal &amp; pelvic diagnostic imagery.</p>
+                  <h3>USG Reporting</h3>
+                  <p>Expert review for general ultrasound, Doppler vascular studies, and pelvic diagnostic imagery.</p>
                 </div>
-                <div className="modality-tags">Color Doppler · Abdominal · Small Parts</div>
+                <div className="modality-tags">Doppler · Pelvic · Abdomen USG · Thyroid · Scrotal</div>
               </div>
 
               {/* SUB */}
@@ -573,10 +587,10 @@ function TahradHome() {
                     <span className="modality-code">SUB</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>Subspecialty reads</h3>
-                  <p>Domain-specific imaging reads reported by radiologists trained in Neuroradiology, MSK, Cardiothoracic, Oncology, and Obstetric Imaging.</p>
+                  <h3>Subspecialty Reads</h3>
+                  <p>Domain-specific imaging reads are reported by radiologists trained in Neuroradiology, Musculoskeletal Imaging, Cardiothoracic Imaging, Oncology and Obstetric Imaging.</p>
                 </div>
-                <div className="modality-tags">Neuro · MSK · Cardio · Oncology</div>
+                <div className="modality-tags">Neuro · MSK · Cardiothoracic · Oncology · Obstetric</div>
               </div>
 
               {/* 24/7 */}
@@ -586,10 +600,10 @@ function TahradHome() {
                     <span className="modality-code">24/7</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>Nighthawk &amp; stat</h3>
-                  <p>Overnight and emergency reads so your nightshift won't be unproductive, leaving undetermined cases for the morning hours.</p>
+                  <h3>Nighthawk &amp; Stat Reads</h3>
+                  <p>Overnight and emergency reads are reported so your nightshift won't be unproductive, leaving undetermined cases for the morning hours.</p>
                 </div>
-                <div className="modality-tags">Overnight · Emergency ED · Stat Reads</div>
+                <div className="modality-tags">Overnight · Emergency ED Coverage · ICU Prelim Reads</div>
               </div>
 
               {/* 2nd */}
@@ -599,10 +613,10 @@ function TahradHome() {
                     <span className="modality-code">2nd</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>Second opinions</h3>
-                  <p>Independent subspecialty reviews and detailed peer audit reports providing clinical certainty for complex or conflicting cases.</p>
+                  <h3>Second Opinions</h3>
+                  <p>For your complex and/or conflicting cases, we provide an additional clinical level of certainty through independent subspecialty reviews.</p>
                 </div>
-                <div className="modality-tags">Peer Review · QA Audit · Consensus</div>
+                <div className="modality-tags">Independent QA · Peer Audit · Expert Consensus</div>
               </div>
             </div>
           </div>
@@ -868,6 +882,9 @@ function TahradHome() {
                   <span className="state-chip">Odisha</span>
                   <span className="state-chip">Punjab</span>
                   <span className="state-chip">Haryana</span>
+                  <span className="state-chip">Assam</span>
+                  <span className="state-chip">Chhattisgarh</span>
+                  <span className="state-chip">Jharkhand</span>
                   <span
                     className="state-chip more-states"
                     onClick={() => setShowCoverageModal(true)}
