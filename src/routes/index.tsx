@@ -5,7 +5,7 @@ import { CoverageCityModal } from "@/components/CoverageCityModal";
 import { JoinPanelModal } from "@/components/JoinPanelModal";
 import { brandLogos, BRAND_FONTS_HREF } from "@/lib/brand";
 import { useStats } from "@/lib/stats-store";
-import { ORGANIZATION_SCHEMA, getBreadcrumbSchema, getWebPageSchema, SITE_URL } from "@/lib/seo-schemas";
+import { ORGANIZATION_SCHEMA, FAQ_SCHEMA, getBreadcrumbSchema, getWebPageSchema, SITE_URL } from "@/lib/seo-schemas";
 
 function formatSeconds(totalSecs: number): string {
   const mins = Math.floor(totalSecs / 60);
@@ -16,33 +16,33 @@ function formatSeconds(totalSecs: number): string {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TAHRAD | 24/7/365 Subspecialty Teleradiology Reporting India" },
+      { title: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India" },
       {
         name: "description",
         content:
-          "Subspecialty radiologists for CT, MRI, X-ray and PET — with a live reporting desk that shows exactly where every study is, who is reading it, and when it will land in your PACS. 15-30m emergency TAT across India.",
+          "India's premier 24x7 teleradiology reporting service for hospitals and diagnostic centres. High-accuracy CT, MRI, X-Ray & subspecialty reporting with 15-30 min emergency TAT.",
       },
       {
         name: "keywords",
         content:
-          "TAHRAD, teleradiology India, 24/7 radiology reporting, CT reporting, MRI reporting, emergency radiologist, PACS teleradiology, subspecialty radiology India",
+          "teleradiology India, 24x7 teleradiology reporting, CT scan reporting, MRI reporting, X-Ray reporting, emergency radiologist, PACS teleradiology, subspecialty radiology, TAH RAD, Trust and Hope Rad, remote radiology",
       },
-      { property: "og:title", content: "TAHRAD | 24/7/365 Subspecialty Teleradiology Reporting" },
+      { property: "og:title", content: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India" },
       {
         property: "og:description",
         content:
-          "Subspecialty radiologists for CT, MRI, X-ray and PET with a live reporting desk. Every scan read. Every report on the clock.",
+          "Fast, accurate, and secure 24x7 radiology reporting for hospitals across India. 140+ fellowship-trained radiologists and cloud PACS integration.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
-      { property: "og:site_name", content: "TAHRAD" },
+      { property: "og:site_name", content: "Trust and Hope Rad Pvt. Ltd." },
       { property: "og:image", content: `${SITE_URL}/brand/tahrad-logo-primary-blue.png` },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "TAHRAD | 24/7/365 Subspecialty Teleradiology Reporting" },
+      { name: "twitter:title", content: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services" },
       {
         name: "twitter:description",
         content:
-          "Subspecialty radiologists for CT, MRI, X-ray and PET. Direct line to your radiologist, live turnaround clocks, PACS integration.",
+          "24x7 remote radiology reporting for CT, MRI, X-Ray & emergency reads across India.",
       },
       { name: "twitter:image", content: `${SITE_URL}/brand/tahrad-logo-primary-blue.png` },
       { name: "robots", content: "index, follow" },
@@ -61,11 +61,15 @@ export const Route = createFileRoute("/")({
       },
       {
         type: "application/ld+json",
+        children: JSON.stringify(FAQ_SCHEMA),
+      },
+      {
+        type: "application/ld+json",
         children: JSON.stringify(
           getWebPageSchema({
-            name: "TAHRAD | 24/7/365 Subspecialty Teleradiology Reporting India",
+            name: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India",
             description:
-              "Subspecialty radiologists for CT, MRI, X-ray and PET with a live reporting desk that shows where every study is, who is reading it, and when it will land in your PACS.",
+              "India's premier 24x7 teleradiology reporting service for hospitals and diagnostic centres. High-accuracy CT, MRI, X-Ray & subspecialty reporting with 15-30 min emergency TAT.",
             path: "/",
           })
         ),
@@ -110,20 +114,14 @@ function TahradHome() {
     return () => clearInterval(interval);
   }, []);
 
-  // Pilot Form State
+  // Partnership / Pilot Form State
   const [pilotForm, setPilotForm] = useState({
     name: "",
     hospital: "",
     email: "",
     phone: "",
-    studiesPerMonth: "Under 300",
-    modalities: {
-      ct: true,
-      mri: true,
-      xray: false,
-      pet: false,
-      night: false,
-    },
+    modality: "Full-Spectrum",
+    message: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -133,7 +131,8 @@ function TahradHome() {
   };
 
   const scrollToPilot = () => {
-    document.getElementById("pilot-section")?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById("contact") || document.getElementById("pilot-section");
+    el?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -154,39 +153,38 @@ function TahradHome() {
               <div className="tah-hero-content">
                 <div className="eyebrow-pill">
                   <span className="dot" aria-hidden="true"></span>
-                  TELERADIOLOGY · 24/7/365 · PAN-INDIA
+                  24×7 TELERADIOLOGY REPORTING · PAN-INDIA
                 </div>
 
                 <h1 className="tah-hero-title">
-                  Every scan read.<br />
-                  Every report on{" "}
-                  <span className="highlight-yellow">the clock.</span>
+                  Full-spectrum<br />
+                  teleradiology,{" "}
+                  <span className="highlight-yellow">one reporting partner.</span>
                 </h1>
 
                 <p className="tah-hero-lead">
-                  Subspecialty radiologists for CT, MRI, X-ray and PET — with a live reporting
-                  desk that shows exactly where every study is, who is reading it, and when it
-                  will land in your PACS.
+                  Fast, subspecialty-backed reporting across all modalities—24/7/365. Eliminate
+                  coverage gaps and streamline your clinical workflow.
                 </p>
 
                 <div className="tah-hero-ctas">
                   <button onClick={scrollToPilot} className="btn-tah-primary">
-                    Request a pilot <span aria-hidden="true">→</span>
+                    Partner with us <span aria-hidden="true">→</span>
                   </button>
                 </div>
 
                 <div className="tah-hero-trust">
                   <div className="trust-item">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    <span>Encrypted DICOM transfer</span>
+                    <span>Direct radiologist communication</span>
                   </div>
                   <div className="trust-item">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    <span>Direct line to your radiologist</span>
+                    <span>15–30 min emergency turnaround</span>
                   </div>
                   <div className="trust-item">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-                    <span>Works with your PACS</span>
+                    <span>Cloud PACS integration</span>
                   </div>
                 </div>
               </div>
@@ -283,56 +281,55 @@ function TahradHome() {
                 <div className="tah-stat-num" data-stat-val="centres">
                   {stats.centres}{stats.centresSuffix}
                 </div>
-                <div className="tah-stat-label">Hospitals & diagnostic centres served</div>
+                <div className="tah-stat-label">Centres Served</div>
               </div>
               <div className="tah-stat-item">
                 <div className="tah-stat-num" data-stat-val="studies">
                   {stats.studies.toLocaleString()}{stats.studiesSuffix}
                 </div>
-                <div className="tah-stat-label">New studies reported every day</div>
+                <div className="tah-stat-label">New Studies Uploaded Daily to PACS</div>
               </div>
               <div className="tah-stat-item">
                 <div className="tah-stat-num" data-stat-val="radiologists">
                   {stats.radiologists}{stats.radiologistsSuffix}
                 </div>
-                <div className="tah-stat-label">Radiologists across subspecialties</div>
+                <div className="tah-stat-label">Radiologists Across Specialisations</div>
               </div>
               <div className="tah-stat-item">
                 <div className="tah-stat-num" data-stat-val="states">
                   {stats.states}{stats.statesSuffix}
                 </div>
-                <div className="tah-stat-label">States covered across India</div>
+                <div className="tah-stat-label">States Covered in India</div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ===================================================================
-            BUILT AROUND HOW YOU WORK (PDF 1 Page 1)
+            WHO WE ARE / BUILT AROUND HOW YOU WORK (PDF 1 Page 1)
             =================================================================== */}
-        <section className="tah-ways-section" id="how-it-works">
+        <section className="tah-ways-section" id="who-we-are">
           <div className="tah-container">
             <div className="tah-section-header-split">
               <div className="header-left">
-                <span className="eyebrow">BUILT AROUND HOW YOU WORK</span>
-                <h2>One partner. Three ways to plug us in.</h2>
+                <span className="eyebrow">WHO WE ARE</span>
+                <h2>Direct Radiologist Communication, Zero Disconnect</h2>
               </div>
               <div className="header-right">
-                Pick the setup that matches your centre. The radiologists, quality checks and reporting desk stay the same.
+                Every scan request means there's a patient on the line. We empower hospitals, diagnostic centres, and clinical teams across India with remote diagnostic interpretations that you can trust implicitly.
               </div>
             </div>
 
             <div className="tah-three-cards-grid">
-              {/* Card 1: Hospitals & trauma centres (Brand Blue) */}
+              {/* Card 1: Our Mission (Brand Blue) */}
               <div className="tah-plug-card card-blue">
                 <div className="card-top">
                   <div className="icon-tile-green">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   </div>
-                  <h3>Hospitals & trauma centres</h3>
+                  <h3>Our Mission</h3>
                   <p>
-                    Night and weekend cover, stat reads for stroke and trauma, and a radiologist
-                    who picks up when your ER calls.
+                    Timely, precise, high-quality reporting to enhance healthcare delivery. We don't just read scans, we remain accessible before, during and after the report is signed.
                   </p>
                 </div>
                 <button
@@ -340,50 +337,48 @@ function TahradHome() {
                   className="card-link"
                   style={{ background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}
                 >
-                  Emergency & night cover →
+                  Direct radiologist communication →
                 </button>
               </div>
 
-              {/* Card 2: Diagnostic centres */}
+              {/* Card 2: Our Vision */}
               <div className="tah-plug-card card-white">
                 <div className="card-top">
                   <div className="icon-tile-green">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
                   </div>
-                  <h3>Diagnostic centres</h3>
+                  <h3>Our Vision</h3>
                   <p>
-                    Add CT and MRI without hiring. Routine and subspecialty reads with predictable
-                    turnaround and one monthly invoice.
+                    A global leader in tele-radiology fostering innovation, trust, and diagnostic excellence—backed by our extensive panel of 140+ fellowship-trained radiologists.
                   </p>
                 </div>
-                <button
-                  onClick={scrollToPilot}
+                <a
+                  href="/our-team"
                   className="card-link"
-                  style={{ background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}
+                  style={{ textDecoration: "none", textAlign: "left" }}
                 >
-                  Full-service reporting →
-                </button>
+                  Meet our radiologists panel →
+                </a>
               </div>
 
-              {/* Card 3: Imaging chains & groups */}
+              {/* Card 3: Service Philosophy */}
               <div className="tah-plug-card card-white">
                 <div className="card-top">
                   <div className="icon-tile-green">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                   </div>
-                  <h3>Imaging chains & groups</h3>
+                  <h3>Service Philosophy</h3>
                   <p>
-                    One reporting desk across every branch. Centre-wise turnaround, volume and
-                    quality reports for your leadership.
+                    Accuracy, Speed, Reliability, Workflow Optimization, and Patient Care. No ticket systems or vague time frames—reporting turnaround times we are actually accountable to.
                   </p>
                 </div>
-                <button
-                  onClick={scrollToPilot}
+                <a
+                  href="#why-us"
                   className="card-link"
-                  style={{ background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}
+                  style={{ textDecoration: "none", textAlign: "left" }}
                 >
-                  Multi-centre setup →
-                </button>
+                  Why choose TAH RAD →
+                </a>
               </div>
             </div>
           </div>
@@ -392,85 +387,85 @@ function TahradHome() {
         {/* ===================================================================
             FROM SCAN TO SIGNED REPORT (FIVE STAGES) (PDF 1 Page 2)
             =================================================================== */}
-        <section className="tah-stages-band">
+        <section className="tah-stages-band" id="how-reporting-works">
           <div className="tah-container">
             <span className="eyebrow">FROM SCAN TO SIGNED REPORT</span>
-            <h2>Five stages. You see every one of them.</h2>
+            <h2>How Teleradiology Works</h2>
 
             <div className="tah-stages-grid">
-              {/* 01 Acquire */}
+              {/* 01 Image acquisition */}
               <div className="tah-stage-col">
                 <div>
                   <div className="stage-number">01</div>
                   <div className="stage-icon-wrap">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                   </div>
-                  <div className="stage-title">Acquire</div>
+                  <div className="stage-title">Image acquisition</div>
                   <div className="stage-text">
-                    Your technician scans as usual. Nothing changes at the console.
+                    A technologist at the hospital or diagnostic centre acquires the scan using standard imaging equipment.
                   </div>
                 </div>
-                <div className="stage-pill">At your centre</div>
+                <div className="stage-pill">DICOM format</div>
               </div>
 
-              {/* 02 Transmit */}
+              {/* 02 Secure transmission */}
               <div className="tah-stage-col">
                 <div>
                   <div className="stage-number">02</div>
                   <div className="stage-icon-wrap">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                   </div>
-                  <div className="stage-title">Transmit</div>
+                  <div className="stage-title">Secure transmission</div>
                   <div className="stage-text">
-                    Studies flow from your PACS to ours, encrypted end to end.
+                    The DICOM images are transmitted securely from the facility's PACS to the teleradiology platform.
                   </div>
                 </div>
-                <div className="stage-pill">Encrypted DICOM</div>
+                <div className="stage-pill">Encrypted transmission</div>
               </div>
 
-              {/* 03 Read */}
+              {/* 03 Radiologist interpretation */}
               <div className="tah-stage-col">
                 <div>
                   <div className="stage-number">03</div>
                   <div className="stage-icon-wrap">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                   </div>
-                  <div className="stage-title">Read</div>
+                  <div className="stage-title">Radiologist interpretation</div>
                   <div className="stage-text">
-                    Matched to a subspecialty radiologist. Stat cases jump the queue.
+                    A board-certified radiologist reviews the images, identifies pathologies, and generates the draft report.
                   </div>
                 </div>
-                <div className="stage-pill">Subspecialty matched</div>
+                <div className="stage-pill">Board-certified reads</div>
               </div>
 
-              {/* 04 Review */}
+              {/* 04 Quality check */}
               <div className="tah-stage-col">
                 <div>
                   <div className="stage-number">04</div>
                   <div className="stage-icon-wrap">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="m9 14 2 2 4-4"/></svg>
                   </div>
-                  <div className="stage-title">Review</div>
+                  <div className="stage-title">Quality check</div>
                   <div className="stage-text">
-                    A second-level quality check before anything is signed.
+                    They validate correct findings, correct any errors, add clinical context, and finalise the report.
                   </div>
                 </div>
-                <div className="stage-pill">Quality checked</div>
+                <div className="stage-pill">Multi-level QA</div>
               </div>
 
-              {/* 05 Deliver */}
+              {/* 05 Report delivery */}
               <div className="tah-stage-col">
                 <div>
                   <div className="stage-number">05</div>
                   <div className="stage-icon-wrap">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                   </div>
-                  <div className="stage-title">Deliver</div>
+                  <div className="stage-title">Report delivery</div>
                   <div className="stage-text">
-                    Signed report lands in your PACS, with critical findings phoned in.
+                    The finalised report is delivered directly to the referring clinician via the integrated PACS or secure portal.
                   </div>
                 </div>
-                <div className="stage-pill">Back in your PACS</div>
+                <div className="stage-pill">Direct PACS delivery</div>
               </div>
             </div>
           </div>
@@ -483,8 +478,8 @@ function TahradHome() {
           <div className="tah-container">
             <div className="tah-modalities-header">
               <div>
-                <span className="eyebrow">FULL-SPECTRUM REPORTING</span>
-                <h2>Every modality. One reporting partner.</h2>
+                <span className="eyebrow">WHAT WE DO</span>
+                <h2>Full-spectrum teleradiology, one reporting partner.</h2>
               </div>
               <button
                 onClick={scrollToPilot}
@@ -498,7 +493,7 @@ function TahradHome() {
                   textDecoration: "underline",
                 }}
               >
-                Ask for a modality we don't list →
+                Covering the entire diagnostic imaging spectrum →
               </button>
             </div>
 
@@ -511,9 +506,9 @@ function TahradHome() {
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
                   <h3>CT reporting</h3>
-                  <p>Trauma, stroke, oncology and routine CT, including angiography.</p>
+                  <p>High-speed CT reporting for head, chest, abdomen, angiography, and polytrauma emergencies with sub-hour stat delivery.</p>
                 </div>
-                <div className="modality-tags">Emergency · Angio · Oncology</div>
+                <div className="modality-tags">Trauma &amp; Stroke · 3D Angio · Abdomen</div>
               </div>
 
               {/* MRI */}
@@ -524,9 +519,9 @@ function TahradHome() {
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
                   <h3>MRI reporting</h3>
-                  <p>Neuro, MSK, spine, body and cardiac MRI by subspecialists.</p>
+                  <p>Comprehensive MRI interpretations covering neuroradiology, spine, musculoskeletal joints, pelvic, and cardiac studies.</p>
                 </div>
-                <div className="modality-tags">Neuro · MSK · Body</div>
+                <div className="modality-tags">Neuro &amp; Spine · MSK · Cardiac &amp; Body</div>
               </div>
 
               {/* XR */}
@@ -536,10 +531,10 @@ function TahradHome() {
                     <span className="modality-code">XR</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>X-Ray & DR</h3>
-                  <p>High-volume chest and skeletal reads with fast turnaround.</p>
+                  <h3>X-Ray reporting</h3>
+                  <p>Rapid turnaround for high-volume plain radiography, chest X-rays, trauma skeletal series, and routine screening.</p>
                 </div>
-                <div className="modality-tags">Chest · Skeletal · Paeds</div>
+                <div className="modality-tags">Chest · Skeletal · Routine Screening</div>
               </div>
 
               {/* PET */}
@@ -549,10 +544,23 @@ function TahradHome() {
                     <span className="modality-code">PET</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>PET-CT reporting</h3>
-                  <p>Oncology staging and response reads by nuclear medicine experts.</p>
+                  <h3>PET reporting</h3>
+                  <p>Specialized PET/CT molecular imaging reads for cancer staging, therapy evaluation, and metabolic lesion tracking.</p>
                 </div>
-                <div className="modality-tags">Oncology · Nuclear</div>
+                <div className="modality-tags">Oncology Staging · FDG · SUVmax</div>
+              </div>
+
+              {/* USG */}
+              <div className="modality-card" onClick={scrollToPilot} style={{ cursor: "pointer" }}>
+                <div>
+                  <div className="modality-card-top">
+                    <span className="modality-code">USG</span>
+                    <span className="modality-arrow" aria-hidden="true">↗</span>
+                  </div>
+                  <h3>USG reporting</h3>
+                  <p>Expert review for general ultrasound, Color Doppler vascular studies, and abdominal &amp; pelvic diagnostic imagery.</p>
+                </div>
+                <div className="modality-tags">Color Doppler · Abdominal · Small Parts</div>
               </div>
 
               {/* SUB */}
@@ -563,9 +571,9 @@ function TahradHome() {
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
                   <h3>Subspecialty reads</h3>
-                  <p>Neuro, MSK, cardiac, paediatric and women’s imaging.</p>
+                  <p>Domain-specific imaging reads reported by radiologists trained in Neuroradiology, MSK, Cardiothoracic, Oncology, and Obstetric Imaging.</p>
                 </div>
-                <div className="modality-tags">Matched by case</div>
+                <div className="modality-tags">Neuro · MSK · Cardio · Oncology</div>
               </div>
 
               {/* 24/7 */}
@@ -575,10 +583,10 @@ function TahradHome() {
                     <span className="modality-code">24/7</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>Nighthawk & stat</h3>
-                  <p>Overnight and weekend cover with stat escalation for emergencies.</p>
+                  <h3>Nighthawk &amp; stat</h3>
+                  <p>Overnight and emergency reads so your nightshift won't be unproductive, leaving undetermined cases for the morning hours.</p>
                 </div>
-                <div className="modality-tags">Night · Weekend · Stat</div>
+                <div className="modality-tags">Overnight · Emergency ED · Stat Reads</div>
               </div>
 
               {/* 2nd */}
@@ -588,23 +596,10 @@ function TahradHome() {
                     <span className="modality-code">2nd</span>
                     <span className="modality-arrow" aria-hidden="true">↗</span>
                   </div>
-                  <h3>Second opinion</h3>
-                  <p>Independent review for complex or disputed cases.</p>
+                  <h3>Second opinions</h3>
+                  <p>Independent subspecialty reviews and detailed peer audit reports providing clinical certainty for complex or conflicting cases.</p>
                 </div>
-                <div className="modality-tags">Complex cases</div>
-              </div>
-
-              {/* MMG */}
-              <div className="modality-card" onClick={scrollToPilot} style={{ cursor: "pointer" }}>
-                <div>
-                  <div className="modality-card-top">
-                    <span className="modality-code">MMG</span>
-                    <span className="modality-arrow" aria-hidden="true">↗</span>
-                  </div>
-                  <h3>Mammography</h3>
-                  <p>Screening and diagnostic mammography by breast imaging specialists.</p>
-                </div>
-                <div className="modality-tags">Screening · Diagnostic</div>
+                <div className="modality-tags">Peer Review · QA Audit · Consensus</div>
               </div>
             </div>
           </div>
@@ -758,8 +753,8 @@ function TahradHome() {
             =================================================================== */}
         <section className="tah-why-section" id="why-us">
           <div className="tah-container">
-            <span className="eyebrow">WHY CENTRES SWITCH TO TAHRAD</span>
-            <h2>Hospitals that work with us always get a call back.</h2>
+            <span className="eyebrow">WHY US</span>
+            <h2>Hospitals who work with us always get a call back.</h2>
 
             <div className="tah-why-grid">
               {/* Card 1 */}
@@ -767,16 +762,16 @@ function TahradHome() {
                 <div className="why-before-box">
                   <div className="why-before-label">BEFORE</div>
                   <p className="why-before-text">
-                    Upload and hope. No idea who has the study or when it will come back.
+                    Radio silence and ticket systems with no request information or approximate timeframes.
                   </p>
                 </div>
                 <div className="why-tahrad-box">
                   <div className="eyebrow" style={{ fontSize: "0.72rem", marginBottom: "0.3rem" }}>
-                    WITH TAHRAD
+                    AVOIDING QUEUE THEORY
                   </div>
-                  <h3>A live clock on every study</h3>
+                  <h3>Dedicated contact &amp; direct connection</h3>
                   <p>
-                    See the stage, the radiologist and the time elapsed — for every scan, from any device.
+                    Your team has a dedicated contact for communication, not an ever-changing support inbox. Connect with radiologists when every minute matters.
                   </p>
                 </div>
               </div>
@@ -786,16 +781,16 @@ function TahradHome() {
                 <div className="why-before-box">
                   <div className="why-before-label">BEFORE</div>
                   <p className="why-before-text">
-                    Queue roulette. Whoever is free reads your neuro case.
+                    Queue roulette and delayed reports because of the unavailability of a single radiologist.
                   </p>
                 </div>
                 <div className="why-tahrad-box">
                   <div className="eyebrow" style={{ fontSize: "0.72rem", marginBottom: "0.3rem" }}>
-                    WITH TAHRAD
+                    LARGE RADIOLOGY NETWORK
                   </div>
-                  <h3>Subspecialists, not whoever is free</h3>
+                  <h3>140+ subspecialty radiologists on call</h3>
                   <p>
-                    Cases are routed by modality and body region to the right radiologist, every time.
+                    Your reports will not be delayed because of the unavailability of one radiologist. 140+ subspecialty radiologists on call 24/7/365.
                   </p>
                 </div>
               </div>
@@ -805,16 +800,16 @@ function TahradHome() {
                 <div className="why-before-box">
                   <div className="why-before-label">BEFORE</div>
                   <p className="why-before-text">
-                    Calls that go to voicemail when your ER needs answers.
+                    Unaccountable response deadlines that come and go without an explanation.
                   </p>
                 </div>
                 <div className="why-tahrad-box">
                   <div className="eyebrow" style={{ fontSize: "0.72rem", marginBottom: "0.3rem" }}>
-                    WITH TAHRAD
+                    WE'VE GOT YOUR BACK
                   </div>
-                  <h3>A radiologist who picks up</h3>
+                  <h3>Accountable turnaround times</h3>
                   <p>
-                    Direct line and in-case chat to the reading radiologist, with escalation built in.
+                    We hold ourselves accountable for our promises. Disciplined turnaround times with dependable report delivery and personal doctor rapport.
                   </p>
                 </div>
               </div>
@@ -833,7 +828,7 @@ function TahradHome() {
                 Radio silence is the enemy of good patient care. We built our entire operation
                 around the belief that a radiologist should be reachable, always.
               </div>
-              <div className="quote-author">TAHRAD CLINICAL OPERATIONS</div>
+              <div className="quote-author">TAH RAD, CLINICAL OPERATIONS</div>
             </div>
           </div>
         </section>
@@ -842,28 +837,32 @@ function TahradHome() {
             PAN-INDIA COVERAGE & RADIOLOGIST RECRUITMENT (PDF 1 Page 4 & Review 05)
             =================================================================== */}
         <section className="tah-coverage-section" id="coverage">
-          <div className="tah-container">
+          <div className="tah-container" id="where-we-work">
             <div className="coverage-grid-split">
               <div>
                 <span className="eyebrow">PAN-INDIA COVERAGE</span>
-                <h2>From metro trauma centres to district diagnostic labs.</h2>
+                <h2>15+ States Covered in India</h2>
                 <p style={{ fontSize: "1.05rem", marginBottom: "1.75rem" }}>
-                  Radiologists across 15+ states, reading in shifts so your night is someone's morning.
+                  From major city trauma centers to regional diagnostic clinics, our network of 140+ board-certified radiologists delivers 24x7 teleradiology reporting across India.
                 </p>
 
                 <div className="state-chips-wrap">
+                  <span className="state-chip">Maharashtra</span>
+                  <span className="state-chip">Uttar Pradesh</span>
+                  <span className="state-chip">Delhi NCR</span>
                   <span className="state-chip">Karnataka</span>
                   <span className="state-chip">Tamil Nadu</span>
                   <span className="state-chip">Kerala</span>
-                  <span className="state-chip">Andhra Pradesh</span>
-                  <span className="state-chip">Telangana</span>
                   <span className="state-chip">Gujarat</span>
                   <span className="state-chip">Rajasthan</span>
-                  <span className="state-chip">Madhya Pradesh</span>
                   <span className="state-chip">West Bengal</span>
-                  <span className="state-chip">Odisha</span>
+                  <span className="state-chip">Madhya Pradesh</span>
+                  <span className="state-chip">Andhra Pradesh</span>
+                  <span className="state-chip">Telangana</span>
                   <span className="state-chip">Bihar</span>
+                  <span className="state-chip">Odisha</span>
                   <span className="state-chip">Punjab</span>
+                  <span className="state-chip">Haryana</span>
                   <span
                     className="state-chip more-states"
                     onClick={() => setShowCoverageModal(true)}
@@ -911,8 +910,7 @@ function TahradHome() {
                   </span>
                 </div>
                 <p style={{ fontSize: "0.95rem", color: "var(--brand-gray)", margin: 0 }}>
-                  Stat trauma, acute stroke, and chest emergencies routed to available neuro and body
-                  specialists in seconds. Direct telephone escalation to ER clinical coordinators.
+                  For critical and emergency trauma cases, TAH RAD delivers rapid stat reads within 15 to 30 minutes with direct doctor-to-doctor call-backs for urgent findings.
                 </p>
               </div>
             </div>
@@ -937,38 +935,98 @@ function TahradHome() {
         </section>
 
         {/* ===================================================================
-            START WITH A PILOT (PDF 1 Page 4 & Review 05)
+            CONTACT & PARTNERSHIP FORM (PDF 1 Page 4 & Review 05)
             =================================================================== */}
-        <section className="tah-pilot-section" id="pilot-section">
-          <div className="tah-container">
+        <section className="tah-pilot-section" id="contact">
+          <div className="tah-container" id="pilot-section">
             <div className="pilot-split-card">
               {/* Left Panel: Blue */}
               <div className="pilot-left-panel">
                 <div>
-                  <span className="eyebrow">START WITH A PILOT</span>
-                  <h2>Send us your next batch of studies. Judge us on the reports.</h2>
+                  <span className="eyebrow">GET IN TOUCH</span>
+                  <h2>Partner with Trust &amp; Hope Rad Today</h2>
+                  <p style={{ color: "#D0DCED", fontSize: "0.95rem", marginTop: "0.5rem", marginBottom: "1.5rem" }}>
+                    Ready to eliminate radiology reporting delays and empower your clinical team with responsive teleradiology? Reach out to schedule a demo or set up your hospital workflow.
+                  </p>
 
                   <div className="pilot-steps-list">
                     <div className="pilot-step-item">
                       <strong>01</strong>
-                      <span>We call you back within one working hour.</span>
+                      <span>Direct consultation with our clinical operations team.</span>
                     </div>
                     <div className="pilot-step-item">
                       <strong>02</strong>
-                      <span>We connect to your PACS and set up your desk.</span>
+                      <span>Zero-friction PACS integration and DICOM gateway setup.</span>
                     </div>
                     <div className="pilot-step-item">
                       <strong>03</strong>
-                      <span>You go live with a named lead radiologist.</span>
+                      <span>Go live with 24/7 subspecialty reporting and dedicated doctor escalation.</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="pilot-company-info">
-                  <strong>Trust & Hope Rad Pvt. Ltd.</strong>
-                  <div>Registered Office: Bengaluru, Karnataka</div>
-                  <div>Call / WhatsApp: +91 99000 00000</div>
-                  <div>contact@tahrad.com</div>
+                  <strong>Trust and Hope Rad Pvt. Ltd.</strong>
+                  <div>#1035, 4th 'M' Block, Dr. Rajkumar Road, Rajajinagar, Bangalore – 560010</div>
+                  <div style={{ marginTop: "0.5rem" }}>
+                    Call / Helpline:{" "}
+                    <a href="tel:+918123388860" style={{ color: "#FFFFFF", fontWeight: 600, textDecoration: "underline" }}>
+                      +91 81233 88860
+                    </a>
+                  </div>
+                  <div>
+                    WhatsApp:{" "}
+                    <a
+                      href="https://wa.me/918123388860"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "var(--brand-green)", fontWeight: 600, textDecoration: "underline" }}
+                    >
+                      +91 81233 88860 (Chat Now →)
+                    </a>
+                  </div>
+                  <div>
+                    Email:{" "}
+                    <a href="mailto:admin@trustandhoperad.com" style={{ color: "#FFFFFF", textDecoration: "underline" }}>
+                      admin@trustandhoperad.com
+                    </a>
+                  </div>
+                  <div style={{ marginTop: "0.75rem", display: "flex", gap: "0.75rem" }}>
+                    <a
+                      href="https://wa.me/918123388860"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-block",
+                        backgroundColor: "#25D366",
+                        color: "#FFFFFF",
+                        padding: "6px 14px",
+                        fontSize: "0.82rem",
+                        borderRadius: "var(--radius-pill)",
+                        textDecoration: "none",
+                        fontWeight: 600,
+                      }}
+                    >
+                      WhatsApp
+                    </a>
+                    <a
+                      href="https://in.linkedin.com/company/trust-and-hope-rad?trk=public_post_feed-actor-name"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-block",
+                        backgroundColor: "rgba(255,255,255,0.15)",
+                        color: "#FFFFFF",
+                        padding: "6px 14px",
+                        fontSize: "0.82rem",
+                        borderRadius: "var(--radius-pill)",
+                        textDecoration: "none",
+                        fontWeight: 600,
+                      }}
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -992,10 +1050,9 @@ function TahradHome() {
                     >
                       ✓
                     </div>
-                    <h2>Pilot Request Received!</h2>
+                    <h2>Request Submitted!</h2>
                     <p style={{ maxWidth: "440px", margin: "0 auto 1.5rem auto" }}>
-                      Thank you, {pilotForm.name}. Our lead radiologist and clinical onboarding team will
-                      contact you within one working hour at <strong>{pilotForm.phone}</strong>.
+                      Thank you! Your request has been submitted. Our team will call you back shortly at <strong>{pilotForm.phone}</strong>.
                     </p>
                     <div
                       style={{
@@ -1006,30 +1063,32 @@ function TahradHome() {
                         fontSize: "0.88rem",
                       }}
                     >
-                      <strong>Next step:</strong> We will configure your PACS DICOM gateway and provision
-                      your trial reporting desk credentials immediately.
+                      <strong>Next step:</strong> Our clinical onboarding team will contact you to configure PACS integration and set up your trial reporting desk.
                     </div>
                   </div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="pilot-form">
+                    <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "1rem", color: "var(--brand-blue)" }}>
+                      Request a Partnership Callback
+                    </h3>
                     <div className="form-row-2">
                       <div className="form-group">
-                        <label>Your name</label>
+                        <label>Your Name</label>
                         <input
                           type="text"
                           required
-                          placeholder="Dr. Priya Sharma"
+                          placeholder="Dr. / Mr. / Ms. Name"
                           className="tah-input"
                           value={pilotForm.name}
                           onChange={(e) => setPilotForm({ ...pilotForm, name: e.target.value })}
                         />
                       </div>
                       <div className="form-group">
-                        <label>Hospital / centre</label>
+                        <label>Hospital / Center Name</label>
                         <input
                           type="text"
                           required
-                          placeholder="Centre name and city"
+                          placeholder="Hospital / Diagnostic Name"
                           className="tah-input"
                           value={pilotForm.hospital}
                           onChange={(e) => setPilotForm({ ...pilotForm, hospital: e.target.value })}
@@ -1039,18 +1098,18 @@ function TahradHome() {
 
                     <div className="form-row-2">
                       <div className="form-group">
-                        <label>Work email</label>
+                        <label>Work Email</label>
                         <input
                           type="email"
                           required
-                          placeholder="name@hospital.in"
+                          placeholder="name@hospital.com"
                           className="tah-input"
                           value={pilotForm.email}
                           onChange={(e) => setPilotForm({ ...pilotForm, email: e.target.value })}
                         />
                       </div>
                       <div className="form-group">
-                        <label>Phone</label>
+                        <label>Phone Number</label>
                         <input
                           type="tel"
                           required
@@ -1063,88 +1122,30 @@ function TahradHome() {
                     </div>
 
                     <div className="form-group">
-                      <label>Studies per month</label>
+                      <label>Primary Modality Needs</label>
                       <select
                         className="tah-select"
-                        value={pilotForm.studiesPerMonth}
-                        onChange={(e) => setPilotForm({ ...pilotForm, studiesPerMonth: e.target.value })}
+                        value={pilotForm.modality}
+                        onChange={(e) => setPilotForm({ ...pilotForm, modality: e.target.value })}
                       >
-                        <option value="Under 300">Under 300 studies/month</option>
-                        <option value="300-1000">300 – 1,000 studies/month</option>
-                        <option value="1000-3000">1,000 – 3,000 studies/month</option>
-                        <option value="3000+">3,000+ studies/month</option>
+                        <option value="Full-Spectrum">Full-Spectrum (CT, MRI, X-Ray, PET, USG)</option>
+                        <option value="CT-MRI">CT &amp; MRI Reporting</option>
+                        <option value="Nighthawk">Nighthawk &amp; Emergency Stat Reads</option>
+                        <option value="Subspecialty">Subspecialty Reads</option>
+                        <option value="Second-Opinion">Second Opinions &amp; QA</option>
                       </select>
                     </div>
 
                     <div className="form-group">
-                      <label>Modalities you need</label>
-                      <div className="checkbox-row">
-                        <label className="tah-checkbox-label">
-                          <input
-                            type="checkbox"
-                            checked={pilotForm.modalities.ct}
-                            onChange={(e) =>
-                              setPilotForm({
-                                ...pilotForm,
-                                modalities: { ...pilotForm.modalities, ct: e.target.checked },
-                              })
-                            }
-                          />
-                          CT
-                        </label>
-                        <label className="tah-checkbox-label">
-                          <input
-                            type="checkbox"
-                            checked={pilotForm.modalities.mri}
-                            onChange={(e) =>
-                              setPilotForm({
-                                ...pilotForm,
-                                modalities: { ...pilotForm.modalities, mri: e.target.checked },
-                              })
-                            }
-                          />
-                          MRI
-                        </label>
-                        <label className="tah-checkbox-label">
-                          <input
-                            type="checkbox"
-                            checked={pilotForm.modalities.xray}
-                            onChange={(e) =>
-                              setPilotForm({
-                                ...pilotForm,
-                                modalities: { ...pilotForm.modalities, xray: e.target.checked },
-                              })
-                            }
-                          />
-                          X-Ray
-                        </label>
-                        <label className="tah-checkbox-label">
-                          <input
-                            type="checkbox"
-                            checked={pilotForm.modalities.pet}
-                            onChange={(e) =>
-                              setPilotForm({
-                                ...pilotForm,
-                                modalities: { ...pilotForm.modalities, pet: e.target.checked },
-                              })
-                            }
-                          />
-                          PET-CT
-                        </label>
-                        <label className="tah-checkbox-label">
-                          <input
-                            type="checkbox"
-                            checked={pilotForm.modalities.night}
-                            onChange={(e) =>
-                              setPilotForm({
-                                ...pilotForm,
-                                modalities: { ...pilotForm.modalities, night: e.target.checked },
-                              })
-                            }
-                          />
-                          Night cover
-                        </label>
-                      </div>
+                      <label>Message / Daily Scan Volume</label>
+                      <textarea
+                        className="tah-input"
+                        rows={2}
+                        placeholder="Tell us about your daily scan volume and reporting requirements..."
+                        value={pilotForm.message}
+                        onChange={(e) => setPilotForm({ ...pilotForm, message: e.target.value })}
+                        style={{ resize: "vertical" }}
+                      />
                     </div>
 
                     <button
@@ -1152,7 +1153,7 @@ function TahradHome() {
                       className="btn-tah-primary"
                       style={{ width: "100%", marginTop: "0.5rem" }}
                     >
-                      Request my pilot callback
+                      Submit Request →
                     </button>
 
                     <p className="form-disclaimer">
@@ -1176,68 +1177,89 @@ function TahradHome() {
             <div className="footer-brand-col">
               <img src={brandLogos.primary.white} alt="TAHRAD" />
               <p>
-                Subspecialty teleradiology for hospitals and diagnostic centres across India.
-                24/7/365.
+                Trust and Hope Rad Pvt. Ltd. | 24×7 teleradiology services serving 350+ centres, 1000+ new studies uploaded daily to PACS, 140+ radiologists across specialisations, 15+ states covered in India.
               </p>
             </div>
 
-            {/* Services */}
+            {/* Contact Us */}
             <div className="footer-links-col">
-              <h4>SERVICES</h4>
-              <div className="footer-links-list">
-                <a href="#services" className="footer-link">CT reporting</a>
-                <a href="#services" className="footer-link">MRI reporting</a>
-                <a href="#services" className="footer-link">X-Ray & DR</a>
-                <a href="#services" className="footer-link">Nighthawk & stat</a>
+              <h4>CONTACT US</h4>
+              <div className="footer-links-list" style={{ fontSize: "0.88rem" }}>
+                <div>Call: <a href="tel:+918123388860" className="footer-link" style={{ display: "inline" }}>+91 81233 88860</a></div>
+                <div>WhatsApp: <a href="https://wa.me/918123388860" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: "inline", color: "var(--brand-green)" }}>+91 81233 88860</a></div>
+                <div>Mail: <a href="mailto:admin@trustandhoperad.com" className="footer-link" style={{ display: "inline", wordBreak: "break-all" }}>admin@trustandhoperad.com</a></div>
+                <div style={{ marginTop: "0.5rem", display: "flex", gap: "0.75rem" }}>
+                  <a
+                    href="https://in.linkedin.com/company/trust-and-hope-rad?trk=public_post_feed-actor-name"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link"
+                    title="LinkedIn"
+                  >
+                    LinkedIn ↗
+                  </a>
+                  <a
+                    href="https://wa.me/918123388860"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link"
+                    title="WhatsApp"
+                  >
+                    WhatsApp ↗
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Company */}
+            {/* Navigate */}
             <div className="footer-links-col">
-              <h4>COMPANY</h4>
+              <h4>NAVIGATE</h4>
               <div className="footer-links-list">
-                <a href="#how-it-works" className="footer-link">How it works</a>
-                <a href="#coverage" className="footer-link">Coverage</a>
-                <button
-                  onClick={() => setShowJoinPanelModal(true)}
-                  className="footer-link"
-                  style={{ background: "none", border: "none", padding: 0, textAlign: "left", cursor: "pointer" }}
-                >
-                  Join as radiologist
-                </button>
-                <a href="#pilot-section" className="footer-link">Contact</a>
+                <a href="#who-we-are" className="footer-link">About Us</a>
+                <a href="/our-team" className="footer-link">Our Team</a>
+                <a href="#coverage" className="footer-link">Pan India Coverage</a>
+                <a href="#how-reporting-works" className="footer-link">How It Works</a>
+                <a href="#services" className="footer-link">Services</a>
+                <a href="#why-us" className="footer-link">Why Us</a>
+                <a href="#contact" className="footer-link">Contact</a>
               </div>
             </div>
 
-            {/* Clients */}
+            {/* Modalities */}
             <div className="footer-links-col">
-              <h4>CLIENTS</h4>
+              <h4>MODALITIES</h4>
               <div className="footer-links-list">
-                <a
-                  href="https://pacs.trustandhoperad.com/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-link"
-                >
-                  Hospital login
-                </a>
-                <a href="#pilot-section" className="footer-link">Request a pilot</a>
+                <a href="#services" className="footer-link">CT Reporting</a>
+                <a href="#services" className="footer-link">MRI Reporting</a>
+                <a href="#services" className="footer-link">X-Ray &amp; USG Reads</a>
+                <a href="#services" className="footer-link">PET Oncology Scans</a>
+                <a href="#services" className="footer-link">Nighthawk &amp; Stat Reads</a>
               </div>
             </div>
           </div>
 
           <div className="footer-bottom-bar">
-            <div>© 2026 Trust & Hope Rad Pvt. Ltd. All rights reserved.</div>
+            <div>© {new Date().getFullYear()} Trust and Hope Rad Pvt. Ltd. All rights reserved.</div>
             <div className="footer-legal-links">
-              <a href="#">Privacy</a>
-              <span>·</span>
-              <a href="#">Terms</a>
-              <span>·</span>
-              <a href="#">Data security</a>
+              <span>Read Right. Read Fast. 24/7.</span>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp CTA */}
+      <a
+        href="https://wa.me/918123388860"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-whatsapp"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.76.459 3.474 1.33 4.987l-1.414 5.163 5.286-1.386a9.96 9.96 0 004.787 1.22h.005c5.507 0 9.99-4.478 9.99-9.985 0-2.667-1.039-5.176-2.924-7.062A9.923 9.923 0 0012.012 2zm5.82 14.161c-.247.692-1.22 1.326-1.996 1.492-.533.113-1.229.206-3.567-.763-2.989-1.237-4.908-4.275-5.059-4.474-.148-.198-1.218-1.621-1.218-3.092 0-1.47.767-2.196 1.041-2.495.274-.298.599-.373.799-.373.199 0 .399.002.573.01.185.008.435-.07.68.518.248.598.847 2.068.921 2.217.075.149.124.323.025.522-.099.198-.149.322-.298.497-.149.174-.313.389-.447.523-.148.149-.303.311-.13.609.174.298.774 1.277 1.662 2.067 1.14 1.015 2.102 1.33 2.399 1.478.298.149.472.124.646-.075.174-.199.746-.87.945-1.168.199-.298.398-.248.671-.149.274.099 1.742.82 2.04 1.043.298.224.497.348.572.473.075.124.075.72-.172 1.412z" />
+        </svg>
+        <span>Chat on WhatsApp</span>
+      </a>
 
       {/* Modal Dialogs */}
       {showCoverageModal && (

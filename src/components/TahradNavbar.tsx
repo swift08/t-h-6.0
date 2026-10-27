@@ -45,6 +45,20 @@ export function TahradNavbar({ onOpenDesk, onRequestPilot }: NavbarProps) {
 
           <nav className="tah-nav-links" aria-label="Main Navigation">
             <button
+              onClick={() => handleScrollTo("who-we-are")}
+              className="tah-nav-link"
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
+              About Us
+            </button>
+            <button
+              onClick={() => handleScrollTo("how-reporting-works")}
+              className="tah-nav-link"
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
+              How It Works
+            </button>
+            <button
               onClick={() => handleScrollTo("services")}
               className="tah-nav-link"
               style={{ background: "none", border: "none", cursor: "pointer" }}
@@ -52,13 +66,12 @@ export function TahradNavbar({ onOpenDesk, onRequestPilot }: NavbarProps) {
               Services
             </button>
             <button
-              onClick={() => handleScrollTo("how-it-works")}
+              onClick={() => handleScrollTo("why-us")}
               className="tah-nav-link"
               style={{ background: "none", border: "none", cursor: "pointer" }}
             >
-              How it works
+              Why Us
             </button>
-
             <button
               onClick={() => handleScrollTo("coverage")}
               className="tah-nav-link"
@@ -67,11 +80,11 @@ export function TahradNavbar({ onOpenDesk, onRequestPilot }: NavbarProps) {
               Coverage
             </button>
             <button
-              onClick={() => handleScrollTo("for-radiologists")}
+              onClick={() => handleScrollTo("contact")}
               className="tah-nav-link"
               style={{ background: "none", border: "none", cursor: "pointer" }}
             >
-              For radiologists
+              Contact
             </button>
           </nav>
 
@@ -82,16 +95,16 @@ export function TahradNavbar({ onOpenDesk, onRequestPilot }: NavbarProps) {
               rel="noopener noreferrer"
               className="tah-nav-login"
             >
-              Hospital login
+              Login
             </a>
             <button
               onClick={() => {
                 if (onRequestPilot) onRequestPilot();
-                else handleScrollTo("pilot-section");
+                else handleScrollTo("contact");
               }}
               className="btn-tah-primary"
             >
-              Request a pilot <span aria-hidden="true">→</span>
+              Partner With Us <span aria-hidden="true">→</span>
             </button>
           </div>
 
@@ -138,29 +151,52 @@ export function TahradNavbar({ onOpenDesk, onRequestPilot }: NavbarProps) {
           }}
         >
           <button
+            onClick={() => handleScrollTo("hero")}
+            style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
+          >
+            Home
+          </button>
+          <button
+            onClick={() => handleScrollTo("who-we-are")}
+            style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
+          >
+            About Us
+          </button>
+          <a
+            href="/our-team"
+            style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", textDecoration: "none" }}
+          >
+            Our Team
+          </a>
+          <button
+            onClick={() => handleScrollTo("coverage")}
+            style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
+          >
+            Pan India Coverage
+          </button>
+          <button
+            onClick={() => handleScrollTo("how-reporting-works")}
+            style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
+          >
+            How It Works
+          </button>
+          <button
             onClick={() => handleScrollTo("services")}
             style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
           >
             Services
           </button>
           <button
-            onClick={() => handleScrollTo("how-it-works")}
+            onClick={() => handleScrollTo("why-us")}
             style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
           >
-            How it works
-          </button>
-
-          <button
-            onClick={() => handleScrollTo("coverage")}
-            style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
-          >
-            Coverage
+            Why Us
           </button>
           <button
-            onClick={() => handleScrollTo("for-radiologists")}
+            onClick={() => handleScrollTo("contact")}
             style={{ textAlign: "left", fontSize: "1.2rem", fontWeight: 700, color: "var(--brand-blue)", background: "none", border: "none" }}
           >
-            For radiologists
+            Contact
           </button>
           <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
             <a
@@ -169,17 +205,17 @@ export function TahradNavbar({ onOpenDesk, onRequestPilot }: NavbarProps) {
               rel="noopener noreferrer"
               style={{ textAlign: "center", padding: "0.75rem", border: "1.5px solid var(--brand-blue)", borderRadius: "var(--radius-pill)", fontWeight: 600 }}
             >
-              Hospital login
+              Login
             </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                handleScrollTo("pilot-section");
+                handleScrollTo("contact");
               }}
               className="btn-tah-primary"
               style={{ width: "100%" }}
             >
-              Request a pilot →
+              Partner With Us →
             </button>
           </div>
         </div>

@@ -73,13 +73,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Trust and Hope Rad Pvt. Ltd." },
-      { name: "description", content: "Trust and Hope Rad Pvt. Ltd. | Teleradiology, Read Right." },
+      { title: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India" },
+      {
+        name: "description",
+        content:
+          "India's premier 24x7 teleradiology reporting service for hospitals and diagnostic centres. High-accuracy CT, MRI, X-Ray & subspecialty reporting with 15-30 min emergency TAT.",
+      },
       { name: "author", content: "Trust and Hope Rad Pvt. Ltd." },
-      { property: "og:title", content: "Trust and Hope Rad Pvt. Ltd." },
-      { property: "og:description", content: "Trust and Hope Rad Pvt. Ltd. | Teleradiology, Read Right." },
+      {
+        name: "keywords",
+        content:
+          "teleradiology India, 24x7 teleradiology reporting, CT scan reporting, MRI reporting, X-Ray reporting, emergency radiologist, PACS teleradiology, subspecialty radiology, TAH RAD, Trust and Hope Rad, remote radiology",
+      },
+      { property: "og:title", content: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services India" },
+      {
+        property: "og:description",
+        content:
+          "Fast, accurate, and secure 24x7 radiology reporting for hospitals across India. 140+ fellowship-trained radiologists and cloud PACS integration.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Trust and Hope Rad Pvt. Ltd." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Trust and Hope Rad Pvt. Ltd. | 24x7 Teleradiology Services" },
+      {
+        name: "twitter:description",
+        content: "24x7 remote radiology reporting for CT, MRI, X-Ray & emergency reads across India.",
+      },
     ],
     links: [
       {

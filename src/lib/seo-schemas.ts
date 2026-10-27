@@ -172,3 +172,51 @@ export function getBreadcrumbSchema(items: Array<{ name: string; item: string }>
     })),
   };
 }
+
+export const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What modalities are covered by TAH RAD Teleradiology?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Trust and Hope Rad Pvt. Ltd. provides full-spectrum teleradiology reporting covering CT Scans, MRI, Digital X-Rays, Ultrasound, Mammography, PET-CT, and nuclear medicine scans.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the turnaround time (TAT) for emergency stat reads?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "For critical and emergency trauma cases, TAH RAD delivers rapid stat reads within 15 to 30 minutes with direct doctor-to-doctor call-backs for urgent findings.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How many radiologists are on the TAH RAD panel?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "TAH RAD has an extensive panel of over 140 fellowship-trained and board-certified radiologists reporting across general and subspecialties 24 hours a day, 365 days a year.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does PACS integration work with diagnostic centres and hospitals?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "TAH RAD integrates seamlessly with existing hospital PACS/RIS or provides a secure cloud PACS platform for instant DICOM study uploads and digital report delivery.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which states in India are served by TAH RAD?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Trust and Hope Rad Pvt. Ltd. serves over 350 diagnostic centres and hospitals across 15+ states in India.",
+      },
+    },
+  ],
+};
+

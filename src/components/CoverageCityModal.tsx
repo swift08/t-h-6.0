@@ -43,7 +43,7 @@ export function CoverageCityModal({ onClose }: CoverageCityModalProps) {
         <span className="eyebrow">PAN-INDIA NETWORK</span>
         <h2>Coverage & City Availability</h2>
         <p>
-          Subspecialty teleradiology coverage active 24/7/365 across 15+ states and over 120 cities & districts.
+          Subspecialty teleradiology coverage active 24/7/365 across 15+ states and 350+ diagnostic centres &amp; hospitals in India.
         </p>
 
         <div style={{ margin: "1.5rem 0" }}>
