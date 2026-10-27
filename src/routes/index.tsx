@@ -391,6 +391,9 @@ function TahradHome() {
           <div className="tah-container">
             <span className="eyebrow">FROM SCAN TO SIGNED REPORT</span>
             <h2>How Teleradiology Works</h2>
+            <p style={{ maxWidth: "720px", color: "var(--brand-gray)", fontSize: "1.05rem", lineHeight: 1.6, marginTop: "0.5rem", marginBottom: "2rem" }}>
+              Each of these steps is designed to facilitate the process of getting reports done, and is fully integrated with PACS.
+            </p>
 
             <div className="tah-stages-grid">
               {/* 01 Image acquisition */}
@@ -402,7 +405,7 @@ function TahradHome() {
                   </div>
                   <div className="stage-title">Image acquisition</div>
                   <div className="stage-text">
-                    A technologist at the hospital or diagnostic centre acquires the scan using standard imaging equipment.
+                    A technologist at the hospital or diagnostic centre acquires the scan using standard imaging equipment (X-ray, CT, MRI, or mammography machine). The images are stored in DICOM format, the universal standard for medical imaging.
                   </div>
                 </div>
                 <div className="stage-pill">DICOM format</div>
@@ -417,7 +420,7 @@ function TahradHome() {
                   </div>
                   <div className="stage-title">Secure transmission</div>
                   <div className="stage-text">
-                    The DICOM images are transmitted securely from the facility's PACS to the teleradiology platform.
+                    The DICOM images are transmitted securely from the facility's PACS (Picture Archiving and Communication System) to the teleradiology platform. Transmission uses encrypted channels compliant with healthcare data standards.
                   </div>
                 </div>
                 <div className="stage-pill">Encrypted transmission</div>
@@ -432,7 +435,7 @@ function TahradHome() {
                   </div>
                   <div className="stage-title">Radiologist interpretation</div>
                   <div className="stage-text">
-                    A board-certified radiologist reviews the images, identifies pathologies, and generates the draft report.
+                    A board-certified radiologist reviews the images, identifies pathologies, and generates the draft report. Work is performed exclusively by certified specialists to ensure diagnostic precision.
                   </div>
                 </div>
                 <div className="stage-pill">Board-certified reads</div>
@@ -447,7 +450,7 @@ function TahradHome() {
                   </div>
                   <div className="stage-title">Quality check</div>
                   <div className="stage-text">
-                    They validate correct findings, correct any errors, add clinical context, and finalise the report.
+                    They validate correct findings, correct any errors, add clinical context, and finalise the report. The final report is double-checked for critical findings before communication.
                   </div>
                 </div>
                 <div className="stage-pill">Multi-level QA</div>
@@ -462,7 +465,7 @@ function TahradHome() {
                   </div>
                   <div className="stage-title">Report delivery</div>
                   <div className="stage-text">
-                    The finalised report is delivered directly to the referring clinician via the integrated PACS or secure portal.
+                    The finalised report is delivered directly to the referring clinician via the integrated PACS or secure portal — fast, accurate, and actionable. Zero technical friction with IT support.
                   </div>
                 </div>
                 <div className="stage-pill">Direct PACS delivery</div>
@@ -610,16 +613,15 @@ function TahradHome() {
             =================================================================== */}
         <section className="tah-desk-overview-section" id="reporting-desk">
           <div className="tah-container">
-            <span className="eyebrow">THE TAHRAD REPORTING DESK</span>
-            <h2>Not an inbox. A control room for your reports.</h2>
+            <span className="eyebrow">INTEGRATED CLOUD PACS PLATFORM</span>
+            <h2>Zero Technical Friction with Seamless PACS Integration</h2>
             <p style={{ maxWidth: "680px", fontSize: "1.1rem" }}>
-              Most teleradiology ends at "upload and wait". With TAHRAD your team logs into one
-              desk to track, prioritise and talk about every study.
+              TAH RAD integrates seamlessly with existing hospital PACS/RIS or provides a secure cloud PACS platform for instant DICOM study uploads, live tracking, and digital report delivery.
             </p>
 
             {/* Mini Desk Live Bar */}
             <div className="tah-mini-desk-bar">
-              <div className="mini-desk-centre">[Your Centre] · Bengaluru</div>
+              <div className="mini-desk-centre">[Your Centre] · Live Reporting Portal</div>
               <div className="mini-desk-metrics">
                 <div className="mini-desk-metric-item">
                   <span>Studies today</span>
@@ -649,8 +651,8 @@ function TahradHome() {
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   </div>
                   <div>
-                    <h3>Live status on every study</h3>
-                    <p>Uploaded, assigned, reading, QC, delivered — with a running clock.</p>
+                    <h3>Pioneer in Teleradiology</h3>
+                    <p>Trusted partner for hospitals and imaging centers across India with multi-level quality assurance and cloud PACS workflow.</p>
                   </div>
                 </div>
 
@@ -659,8 +661,8 @@ function TahradHome() {
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                   </div>
                   <div>
-                    <h3>Talk to the reading radiologist</h3>
-                    <p>Message or call from the case itself. No switchboard, no waiting.</p>
+                    <h3>24/7 Direct Customer Support</h3>
+                    <p>Never experience radio silence. Immediate escalation pathways and doctor-to-doctor consultation whenever critical findings emerge.</p>
                   </div>
                 </div>
 
@@ -669,8 +671,8 @@ function TahradHome() {
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                   </div>
                   <div>
-                    <h3>One tap to mark stat</h3>
-                    <p>Escalate a case and watch it jump the queue in real time.</p>
+                    <h3>15–30 Min Emergency Stat Reads</h3>
+                    <p>Immediate escalation for stroke and acute trauma cases, delivered within 15–30 minutes with direct doctor call-backs.</p>
                   </div>
                 </div>
 
@@ -679,8 +681,8 @@ function TahradHome() {
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                   </div>
                   <div>
-                    <h3>Reports your leadership can read</h3>
-                    <p>Turnaround, volume and quality by centre, modality and shift.</p>
+                    <h3>Lots of Volume, Still Personal</h3>
+                    <p>Over a million studies reported, while maintaining personal doctor rapport and direct communication on every case.</p>
                   </div>
                 </div>
 
@@ -690,7 +692,7 @@ function TahradHome() {
                     className="btn-tah-primary"
                     style={{ marginTop: "0.5rem" }}
                   >
-                    Request a pilot / live demo <span aria-hidden="true">→</span>
+                    Partner with us <span aria-hidden="true">→</span>
                   </button>
                 </div>
               </div>
@@ -755,6 +757,9 @@ function TahradHome() {
           <div className="tah-container">
             <span className="eyebrow">WHY US</span>
             <h2>Hospitals who work with us always get a call back.</h2>
+            <p style={{ maxWidth: "780px", color: "var(--brand-gray)", fontSize: "1.05rem", lineHeight: 1.6, marginTop: "0.5rem", marginBottom: "2rem" }}>
+              Ask any radiology coordinator what the biggest disconnect is with teleradiology. The answer is almost always the silence that occurs within the process. There is no one to contact if there are questions, and the response deadlines for the reports come and go without an explanation. These issues are what we aim to address with Trust and Hope Rad Pvt. Ltd.
+            </p>
 
             <div className="tah-why-grid">
               {/* Card 1 */}
