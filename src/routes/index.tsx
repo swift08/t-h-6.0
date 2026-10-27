@@ -401,8 +401,8 @@ function TahradHome() {
         <section className="tah-stages-band" id="how-reporting-works">
           <div className="tah-container">
             <span className="eyebrow">FROM SCAN TO SIGNED REPORT</span>
-            <h2>How Teleradiology Works</h2>
-            <p style={{ maxWidth: "720px", color: "var(--brand-gray)", fontSize: "1.05rem", lineHeight: 1.6, marginTop: "0.5rem", marginBottom: "2rem" }}>
+            <h2 style={{ marginBottom: "0.75rem" }}>How Teleradiology Works</h2>
+            <p style={{ maxWidth: "720px", color: "rgba(255, 255, 255, 0.9)", fontSize: "1.05rem", lineHeight: 1.6, marginTop: "0", marginBottom: "3rem" }}>
               Each of these steps is designed to facilitate the process of getting reports done, and is fully integrated with PACS.
             </p>
 
